@@ -1,4 +1,4 @@
-package com.example.switer;
+package com.example.switer.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

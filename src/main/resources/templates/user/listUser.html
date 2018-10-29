@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<!-- Thymeleaf Namespace -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>formAddUser</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Person list:</h1>
+<div>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Tag</th>
+        </tr>
+        <tr th:each ="user : ${users}">
+            <td th:utext="${user.name}">...</td>
+            <td th:utext="${user.email}">...</td>
+            <td th:utext="${user.tag}">...</td>
+        </tr>
+    </table>
+</div>
+
+
+<form method="post" action="filter">
+    <input type="text" name="filter">
+    <button type="submit">
+        Найти
+    </button>
+</form>
+
+</body>
+</html>

@@ -1,17 +1,43 @@
 package com.example.switer.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
+    @NotNull
+    @Column(name="NAME", length = 10)
     private String name;
     private String email;
+    private String tag;
+
+    public User(){
+
+    }
+    public User(String name, String emasil){
+        this.name = name;
+        this.email = emasil;
+    }
+    /**
+     * Getter for property 'tag'.
+     *
+     * @return Value for property 'tag'.
+     */
+    public String getTag() {
+        return tag;
+    }
+
+    /**
+     * Setter for property 'tag'.
+     *
+     * @param tag Value to set for property 'tag'.
+     */
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 
     /**
      * Getter for property 'id'.

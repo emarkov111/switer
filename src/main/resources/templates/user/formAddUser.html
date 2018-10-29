@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<!-- Thymeleaf Namespace -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>formAddUser</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Create a Person:</h1>
+<!-- <p th:text="'Save, ' + ${name} + '!'" /> -->
+<form th:action="@{/demo/formAddUser}" th:object="${userForm}" method="POST">
+    Name:
+    <input type="text" placeholder="Введите имя" th:field="*{name}"/>
+    <br/>
+    email:
+    <input type="text" th:field="*{email}"/>
+    <br/>
+    <input type="submit" value="Create"/>
+</form>
+<br/>
+<!-- Check if errorMessage is not null and not empty -->
+
+<div th:if="${errorMessage}" th:utext="${errorMessage}"
+     style="color:red;font-style:italic;">
+    ...
+</div>
+
+</body>
+</html>

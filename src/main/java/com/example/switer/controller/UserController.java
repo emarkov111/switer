@@ -65,10 +65,10 @@ public class UserController {
 */
 
     @PostMapping(path = "filter")
-    public String getFilterUsers(@RequestParam String filter, Map<String, Object> model) {
+    public String getFilterUsers(@RequestParam String filterStr, Map<String, Object> model) {
         Iterable<User> users;
-        if(filter != null && !filter.isEmpty()){
-            users = userRepository.findByName(filter);
+        if(filterStr != null && !filterStr.isEmpty()){
+            users = userRepository.findByName(filterStr);
         }else {
             users = userRepository.findAll();
         }

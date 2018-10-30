@@ -4,28 +4,38 @@
 <head>
     <title>formAddUser</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" th:src="@{/js/jquery-3.3.1.js}"></script>
+    <script type="text/javascript" th:src="@{/js/dataTables/datatables.js}"></script>
+    <script type="text/javascript" th:src="@{/js/addUserDataTable.js}"></script>
+
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dataTables/datatables.css}">
 </head>
 <body>
 <h1>Person list:</h1>
 <div>
-    <table border="1">
+    <table border="1" class="display" id="listUser">
+        <thead>
         <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Tag</th>
         </tr>
-        <tr th:each ="user : ${users}">
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
             <td th:utext="${user.name}">...</td>
             <td th:utext="${user.email}">...</td>
             <td th:utext="${user.tag}">...</td>
         </tr>
+        </tbody>
     </table>
 </div>
-
+<br><br>
 
 <form method="post" action="filter">
-    <input type="text" name="filter">
+    <input type="text" name="filterStr">
     <button type="submit">
         Найти
     </button>
@@ -33,3 +43,4 @@
 
 </body>
 </html>
+

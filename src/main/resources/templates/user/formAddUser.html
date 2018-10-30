@@ -4,21 +4,80 @@
 <head>
     <title>formAddUser</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" th:src="@{/js/datatables.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery-3.3.1.js}" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/js/addUserDataTable.js}"></script>
+
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/datatables.css}">
+
+
 </head>
 <body>
 <h1>Create a Person:</h1>
 <!-- <p th:text="'Save, ' + ${name} + '!'" /> -->
 <form th:action="@{/demo/formAddUser}" th:object="${userForm}" method="POST">
-    Name:
-    <input type="text" placeholder="Введите имя" th:field="*{name}"/>
-    <br/>
-    email:
-    <input type="text" th:field="*{email}"/>
-    <br/>
+    <table id="addUser" class="display table">
+        <thead>
+        <tr>
+            <th>
+                Name:
+            </th>
+            <th>
+                email:
+            </th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>
+                <input type="text" placeholder="Введите имя" th:field="*{name}"/>
+            </th>
+            <th>
+                <input type="text" th:field="*{email}"/>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
     <input type="submit" value="Create"/>
 </form>
 <br/>
+
+<!--
+<table id="test" class="display table">
+    <thead>
+    <tr>
+        <th>
+            test0
+        </th>
+        <th>
+            test1
+        </th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>
+            tes00
+        </th>
+        <th>
+            tes01
+        </th>
+    </tr>
+    <tr>
+        <th>
+            tes10
+        </th>
+        <th>
+            tes11
+        </th>
+    </tr>
+    </tfoot>
+</table>
+-->
 <!-- Check if errorMessage is not null and not empty -->
 
 <div th:if="${errorMessage}" th:utext="${errorMessage}"

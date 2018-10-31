@@ -91,3 +91,4 @@ target/classes/application.properties
 target/classes/static/
 target/classes/templates/
 target/generated-sources/
+/switer.iml

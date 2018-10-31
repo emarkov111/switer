@@ -6,7 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-Sec Form:)
+
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
@@ -15,7 +15,8 @@ Sec Form:)
 </div>
 <br>
 Add new user
-<div th:if="${#message}" th:utext="${#message}"
+<br>
+<div th:if="${message}" th:utext="${message}"
      style="color:red;font-style:italic;">
     ...
 </div>

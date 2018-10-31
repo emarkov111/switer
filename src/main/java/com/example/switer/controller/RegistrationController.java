@@ -5,12 +5,12 @@ import com.example.switer.domain.UserLogin;
 import com.example.switer.repository.UserLoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Collections;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/registration")
@@ -25,10 +25,10 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(UserLogin userLogin, Map<String, Object> model) {
+    public String addUser(UserLogin userLogin, Model model) {
         UserLogin userFromDb = userLoginRepository.findByUserName(userLogin.getUserName());
         if (userFromDb != null) {
-            model.put("message", "User Exists!");
+            model.addAttribute("message", "User Exists!");
             return "/registration";
         }
         userLogin.setActivity(true);

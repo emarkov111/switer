@@ -1,9 +1,10 @@
 package com.example.switer.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.Min;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -11,10 +12,10 @@ public class User {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     @NotNull
-    @Size(min = 5, max = 255)
+//    @Size(min = 5, max = 255)
     private String name;
     @NotNull
-    @Min(5)
+//    @Min(5)
     private String email;
     private String tag;
 

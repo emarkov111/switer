@@ -64,7 +64,7 @@ public class UserController {
     }
 */
 
-    @PostMapping(path = "filter")
+    @PostMapping(path = "/filter")
     public String getFilterUsers(@RequestParam String filterStr, Map<String, Object> model) {
         Iterable<User> users;
         if(filterStr != null && !filterStr.isEmpty()){
